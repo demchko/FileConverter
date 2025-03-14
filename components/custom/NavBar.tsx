@@ -11,7 +11,6 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 export const NavBar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  console.log(user);
   return (
     <div className="w-full bg-gray-300 flex justify-between px-8 py-3 items-center">
       <div className="flex gap-10">
