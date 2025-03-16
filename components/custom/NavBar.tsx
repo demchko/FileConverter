@@ -7,6 +7,7 @@ import {
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "../ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import Image from "next/image";
 
 export const NavBar = async () => {
   const { getUser } = getKindeServerSession();
@@ -27,10 +28,12 @@ export const NavBar = async () => {
           <>
             <p>{user.given_name}</p>
             {user.picture && (
-              <img
+              <Image
                 src={user.picture}
                 alt="avatar"
-                className="w-10 h-10 rounded-full"
+                className="rounded-full"
+                width={40}
+                height={40}
               />
             )}
             <LogoutLink className={cn(buttonVariants())}>Logout</LogoutLink>

@@ -1,5 +1,5 @@
 import { createNewPost } from "@/app/actions";
-import { Button } from "@/components/ui/button";
+import { SubmitButton } from "@/components/custom/SubmitButton";
 import {
   Card,
   CardContent,
@@ -39,7 +39,7 @@ export default function DashboardCreate() {
                 />
               </div>
             </div>
-            <Button className="w-full">Create post</Button>
+            <SubmitButton />
           </form>
         </CardContent>
       </Card>
