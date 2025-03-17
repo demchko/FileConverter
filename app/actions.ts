@@ -8,6 +8,10 @@ export const createNewPost = async (formData: FormData) => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
+  if (!user) {
+    return redirect("/api/auth/register");
+  }
+
   const title = formData.get("title") as string;
   const content = formData.get("content") as string;
   const img = formData.get("img") as string;
