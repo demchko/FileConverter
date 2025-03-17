@@ -68,7 +68,7 @@ export const PostCardComp = ({ item }: { item: PostCardCompProps }) => {
         </div>
         <div className="p-3 flex flex-col gap-4">
           <p className="text-lg font-semibold">{item.title}</p>
-          <p className="text-lg">{item.content}</p>
+          <p className="text-lg max-w-full truncate">{item.content}</p>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
               <Image
