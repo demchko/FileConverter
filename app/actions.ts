@@ -30,3 +30,20 @@ export const createNewPost = async (formData: FormData) => {
 
   redirect("/dashboard");
 };
+
+export const deletePost = async (formData: FormData) => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (!user) {
+    return redirect("/api/auth/register");
+  }
+
+  const id = formData.get("id") as string;
+  await prisma.blogPost.delete({
+    where: {
+      id: id,
+    },
+  });
+  redirect("/dashboard");
+};

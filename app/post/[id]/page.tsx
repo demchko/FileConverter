@@ -1,3 +1,5 @@
+import { deletePost } from "@/app/actions";
+import { DeleteButton } from "@/components/custom/DeleteButton";
 import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/lib/prisma";
 import { cn } from "@/lib/utils";
@@ -28,11 +30,15 @@ export default async function DashboardItemPage({
   return (
     <div className="w-full flex justify-center items-center">
       <div className="w-4/5">
-        <div className="py-4">
+        <div className="py-4 flex items-center justify-between">
           <Link href="/dashboard" className={cn(buttonVariants())}>
             <ArrowLeft />
             Back to posts
           </Link>
+          <form action={deletePost}>
+            <input hidden name="id" value={id} readOnly />
+            <DeleteButton />
+          </form>
         </div>
         <div className="flex flex-col gap-4">
           <p className="text-3xl font-semibold">{data.title}</p>
